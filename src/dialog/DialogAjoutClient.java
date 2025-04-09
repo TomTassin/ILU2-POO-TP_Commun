@@ -4,8 +4,8 @@ import java.awt.EventQueue;
 
 import control.ControlCreerClient;
 import model.CarnetClientele;
-import presentation.PresentationJFrameModeAdministrateur;
 import presentation.PresentationJFrameCreationClient;
+import presentation.PresentationJFrameModeAdministrateur;
 
 public class DialogAjoutClient {
 
