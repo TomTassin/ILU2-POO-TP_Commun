@@ -28,23 +28,31 @@ public class CalendrierAnnuel {
 		private Mois(String nom, int nbJours) {
 			this.nom = nom;
 			this.jour = new Boolean[nbJours];
+			for (int i = 0; i < jour.length; i++) {
+				this.jour[i] = true;
+			}
 		}
 		
 		private void reserver(int jour) {
-			this.jour[jour-1] = true;
+			this.jour[jour-1] = false;
 		}
 		
 		private boolean estLibre(int jour) {
-			return this.jour[jour-1] == false;
+			return this.jour[jour-1];
 		}
 	}
 	
 	public boolean estLibre(int jour, int mois) {
-		return calendrier[mois].estLibre(jour);
+		return calendrier[mois-1].estLibre(jour);
 	}
 	
 	public boolean reserver(int jour, int mois) {
-		return calendrier[mois].reserver(jour);
+		if (estLibre(jour, mois)) {
+			calendrier[mois-1].reserver(jour);
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 }
